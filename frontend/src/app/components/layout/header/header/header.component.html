@@ -1,5 +1,13 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand ms-5" href="#">{{ title }}</a>
+    <a class="navbar-brand ms-5" routerLink="/">{{ title }}</a>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a routerLink="/products/add" class="nav-link text-white"
+          >Add product</a
+        >
+      </li>
+    </ul>
   </nav>
 </header>

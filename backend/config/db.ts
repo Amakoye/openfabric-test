@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const connectDB = async () => {
   try {
     const connectionUri =
-      "mongodb+srv://charlesamakoye:FbbZwX9NLBF4FyLP@cluster2023.inetwf2.mongodb.net/?retryWrites=true&w=majority";
+      "mongodb+srv://charlesamakoye:FbbZwX9NLBF4FyLP@cluster2023.inetwf2.mongodb.net/open_fabric_db?retryWrites=true&w=majority";
     await mongoose.connect(connectionUri);
 
     const db = mongoose.connection;

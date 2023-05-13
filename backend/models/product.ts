@@ -4,11 +4,13 @@ import connectDB from "../config/db";
 connectDB();
 
 const productSchema: Schema = new Schema({
-  name: {
+  title: {
     type: String,
     required: true,
   },
   description: String,
+  brand: String,
+  category: String,
   price: {
     type: Number,
     required: true,

@@ -29,6 +29,6 @@ export class ProductsService {
   }
 
   editProduct(id: string, product: Product): Observable<Product> {
-    return this.http.patch<Product>(`${this.api}/${id}`, product, httpOptions);
+    return this.http.put<Product>(`${this.api}/${id}`, product, httpOptions);
   }
 }

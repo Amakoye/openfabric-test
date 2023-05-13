@@ -1,0 +1,28 @@
+import bodyParser from "body-parser";
+import cors from "cors";
+import express, { Application, NextFunction, Request, Response } from "express";
+import connectDB from "./config/db";
+import productRoutes from "./routes/products/index";
+
+const app: Application = express();
+const port: number = 3000;
+
+//MongoDB connection
+connectDB();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
+// Routes
+app.use("/api/products", productRoutes);
+
+// Error handling middleware
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error(err);
+  res.status(500).json({ error: "Internal server error" });
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

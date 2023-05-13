@@ -14,6 +14,18 @@
         formControlName="title"
         required
       />
+      <div
+        *ngIf="
+          productForm.controls['title'].invalid &&
+          (productForm.controls['title'].dirty ||
+            productForm.controls['title'].touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="productForm.controls['title']?.errors?.['required']">
+          Title is required.
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -23,6 +35,18 @@
         class="form-control"
         formControlName="description"
       ></textarea>
+      <div
+        *ngIf="
+          productForm.controls['description'].invalid &&
+          (productForm.controls['description'].dirty ||
+            productForm.controls['description'].touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="productForm.controls['description']?.errors?.['required']">
+          Description is required.
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -34,6 +58,18 @@
         formControlName="price"
         required
       />
+      <div
+        *ngIf="
+          productForm.controls['price'].invalid &&
+          (productForm.controls['price'].dirty ||
+            productForm.controls['price'].touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="productForm.controls['price']?.errors?.['required']">
+          Price is required.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="brand">Brand</label>
@@ -44,6 +80,18 @@
         formControlName="brand"
         required
       />
+      <div
+        *ngIf="
+          productForm.controls['brand'].invalid &&
+          (productForm.controls['brand'].dirty ||
+            productForm.controls['brand'].touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="productForm.controls['brand']?.errors?.['required']">
+          Brand is required.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="category">Category</label>
@@ -54,9 +102,23 @@
         formControlName="category"
         required
       />
+      <div
+        *ngIf="
+          productForm.controls['category'].invalid &&
+          (productForm.controls['category'].dirty ||
+            productForm.controls['category'].touched)
+        "
+        class="text-danger"
+      >
+        <div *ngIf="productForm.controls['category']?.errors?.['required']">
+          Title is required.
+        </div>
+      </div>
     </div>
     <div class="form-group my-3">
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="submit" class="btn btn-primary">
+        {{ productId ? "Edit" : "Add" }}
+      </button>
     </div>
   </form>
 </div>

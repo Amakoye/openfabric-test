@@ -11,6 +11,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class ProductFormComponent implements OnInit {
   productForm: FormGroup;
   productId: string;
+  message: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,5 +36,29 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {}
+  onSubmit(): void {
+    if (this.productForm.valid) {
+      const product = this.productForm.value;
+      if (this.productId) {
+        this.productsServive
+          .editProduct(this.productId, product)
+          .subscribe(() => {
+            this.setMessage('Product updated successfully');
+          });
+      } else {
+        this.productsServive.addProduct(product).subscribe(() => {
+          this.setMessage('Product added successfully');
+        });
+      }
+    }
+  }
+
+  setMessage(message: string): void {
+    this.message = message;
+    console.log(message);
+    setTimeout(() => {
+      this.message = '';
+    }, 3000);
+    return;
+  }
 }

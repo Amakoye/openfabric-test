@@ -55,10 +55,11 @@ export class ProductFormComponent implements OnInit {
 
   setMessage(message: string): void {
     this.message = message;
-    console.log(message);
     setTimeout(() => {
       this.message = '';
+      this.productForm.reset();
     }, 3000);
+
     return;
   }
 }

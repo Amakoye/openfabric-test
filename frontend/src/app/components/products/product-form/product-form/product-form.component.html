@@ -5,6 +5,7 @@
     [formGroup]="productForm"
     (ngSubmit)="onSubmit()"
   >
+    <app-alert *ngIf="message" [message]="message"></app-alert>
     <div class="form-group">
       <label for="title">Title</label>
       <input

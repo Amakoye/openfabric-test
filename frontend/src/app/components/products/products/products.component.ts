@@ -9,6 +9,7 @@ import { Product } from 'src/types';
 })
 export class ProductsComponent implements OnInit {
   products: Product[];
+  message: string;
 
   constructor(private productsService: ProductsService) {}
 
@@ -21,7 +22,10 @@ export class ProductsComponent implements OnInit {
   onDelete(id: string): void {
     this.products = this.products.filter((product) => product.id !== id);
     this.productsService.deleteProduct(id).subscribe(() => {
-      console.log('deleted');
+      this.message = 'Product deleted succesfully';
+      setTimeout(() => {
+        this.message = '';
+      }, 3000);
     });
   }
 }

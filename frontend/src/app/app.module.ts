@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/layout/header/header/header.compon
 import { ProductFormComponent } from './components/products/product-form/product-form/product-form.component';
 import { ProductItemComponent } from './components/products/product-item/product-item/product-item.component';
 import { ProductsComponent } from './components/products/products/products.component';
+import { AlertComponent } from './components/layout/alert/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProductsComponent } from './components/products/products/products.compo
     ProductsComponent,
     ProductItemComponent,
     ProductFormComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

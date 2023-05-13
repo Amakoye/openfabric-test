@@ -1,5 +1,10 @@
 <section class="my-5">
   <div class="container-fluid">
+    <div class="row" *ngIf="message">
+      <div class="col-4 justify-content-center">
+        <app-alert [message]="message"></app-alert>
+      </div>
+    </div>
     <div class="row flex-wrap g-3">
       <div
         class="col-xs-12 col-sm-12 col-md-6 col-lg-4"

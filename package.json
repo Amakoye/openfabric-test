@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "npm start --prefix backend",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "install": "concurrently \"npm install\" \"cd backend && npm install\" \"cd frontend && npm install\""
   },
   "keywords": [],
   "author": "",

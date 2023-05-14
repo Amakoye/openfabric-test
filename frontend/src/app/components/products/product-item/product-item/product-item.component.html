@@ -35,6 +35,7 @@
         >Edit</a
       >
       <button
+        *ngIf="access_token | async as token"
         class="btn btn-danger btn-sm text-white"
         (click)="deleteProduct()"
       >

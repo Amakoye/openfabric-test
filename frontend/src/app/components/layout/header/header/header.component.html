@@ -14,6 +14,11 @@
       <li class="nav-item">
         <a routerLink="/register" class="nav-link text-white">Register</a>
       </li>
+      <li class="nav-item" *ngIf="access_token | async as token">
+        <button (click)="onLogout()" class="nav-link text-white">
+          Log out
+        </button>
+      </li>
     </ul>
   </nav>
 </header>

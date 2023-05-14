@@ -23,12 +23,12 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    console.log('loggeing lg in');
-    console.log(this.loginForm.value);
     if (this.loginForm.valid) {
       const user = this.loginForm.value;
-      console.log(user);
-      this.authService.login(user).subscribe(({ message }) => {
+
+      this.authService.login(user).subscribe(({ message, access_token }) => {
+        this.authService.setToken(access_token as string);
+
         this.message = message as string;
         setTimeout(() => {
           this.message = '';

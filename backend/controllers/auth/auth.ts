@@ -1,9 +1,25 @@
 import bcrypt from "bcrypt";
 import { Request, Response } from "express";
+import { body, validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import User from "../../models/auth/user";
 
-export const registerUser = async (req: Request, res: Response) => {
+export const validateUserRules = [
+  body("username").notEmpty().withMessage("Product name is required."),
+  body("password").notEmpty().withMessage("Product name is required."),
+];
+
+export const registerUser = async (
+  req: Request,
+  res: Response
+): Promise<void | any> => {
+  // Check for validation errors
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(400).json({ errors: errors.array() });
+    return;
+  }
+
   try {
     const { username, password } = req.body;
     const existingUser = await User.findOne({ username });
@@ -23,7 +39,10 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 };
 
-export const loginUser = async (req: Request, res: Response) => {
+export const loginUser = async (
+  req: Request,
+  res: Response
+): Promise<void | any> => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });

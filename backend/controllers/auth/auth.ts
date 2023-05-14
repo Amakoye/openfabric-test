@@ -42,7 +42,7 @@ export const loginUser = async (req: Request, res: Response) => {
       process.env.ACCESS_TOKEN_SECRET as string
     );
 
-    res.json({ token });
+    res.json({ username: username, access_token: token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Failed to login" });

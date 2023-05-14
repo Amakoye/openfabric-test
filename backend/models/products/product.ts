@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema } from "mongoose";
-import connectDB from "../config/db";
+import connectDB from "../../config/db";
 
 connectDB();
 

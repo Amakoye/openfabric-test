@@ -6,13 +6,14 @@ import {
   getProductById,
   updateProduct,
 } from "../../controllers/products/products";
+import authenticateToken from "../../middleware/auth/auth";
 
 const productRouter: Router = Router();
 
 productRouter.get("/", getAllProducts);
 productRouter.get("/:id", getProductById);
-productRouter.post("/", createProduct);
-productRouter.put("/:id", updateProduct);
-productRouter.delete("/:id", deleteProduct);
+productRouter.post("/", authenticateToken, createProduct);
+productRouter.put("/:id", authenticateToken, updateProduct);
+productRouter.delete("/:id", authenticateToken, deleteProduct);
 
 export default productRouter;

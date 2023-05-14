@@ -11,6 +11,8 @@ import { ProductFormComponent } from './components/products/product-form/product
 import { ProductItemComponent } from './components/products/product-item/product-item/product-item.component';
 import { ProductsComponent } from './components/products/products/products.component';
 import { AlertComponent } from './components/layout/alert/alert/alert.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { AlertComponent } from './components/layout/alert/alert/alert.component'
     ProductItemComponent,
     ProductFormComponent,
     AlertComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

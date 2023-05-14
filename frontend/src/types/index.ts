@@ -7,4 +7,11 @@ type Product = {
   id: string;
 };
 
-export { Product };
+type User = {
+  username: string;
+  password?: string;
+  access_token?: string;
+  message?: string;
+};
+
+export { Product, User };

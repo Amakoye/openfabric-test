@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express, { Application, NextFunction, Request, Response } from "express";
 import connectDB from "./config/db";
+import authRoutes from "./routes/auth";
 import productRoutes from "./routes/products/index";
 
 const app: Application = express();
@@ -16,6 +17,7 @@ app.use(cors());
 
 // Routes
 app.use("/api/products", productRoutes);
+app.use("/api/auth", authRoutes);
 
 // Error handling middleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

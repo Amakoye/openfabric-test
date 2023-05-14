@@ -1,20 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Product } from 'src/types';
-
-/* const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-  }),
-}; */
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  private api = 'http://localhost:3000/api/products';
+  private api = `${environment.apiUrl}/products`;
   httpOptions: HttpHeaders;
 
   constructor(private http: HttpClient) {

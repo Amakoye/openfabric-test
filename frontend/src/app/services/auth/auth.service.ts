@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { User } from 'src/types';
 
 const httpOptions = {
@@ -13,7 +14,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  private api = 'http://localhost:3000/api/auth';
+  private api = `${environment.apiUrl}/auth`;
   private tokenSubject: BehaviorSubject<string> = new BehaviorSubject<string>(
     ''
   );

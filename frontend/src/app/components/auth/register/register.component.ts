@@ -31,7 +31,7 @@ export class RegisterComponent {
           this.message = '';
           this.registerForm.reset();
           this.router.navigate(['/login']);
-        }, 3000);
+        }, 1000);
       });
     }
   }

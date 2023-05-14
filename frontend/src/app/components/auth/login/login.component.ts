@@ -34,7 +34,7 @@ export class LoginComponent {
           this.message = '';
           this.loginForm.reset();
           this.router.navigate(['/']);
-        }, 3000);
+        }, 1000);
       });
     }
   }

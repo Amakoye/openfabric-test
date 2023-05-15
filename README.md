@@ -17,4 +17,4 @@ export const environment = {
 ```
 ## Running the application
 * While in the root directory, run
-. npm run dev
+1. npm run dev

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +13,8 @@ import { ProductsComponent } from './components/products/products/products.compo
 import { AlertComponent } from './components/layout/alert/alert/alert.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { LoadingComponent } from './components/layout/loading/loading/loading.component';
+import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { RegisterComponent } from './components/auth/register/register.component
     AlertComponent,
     LoginComponent,
     RegisterComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,11 @@ import { RegisterComponent } from './components/auth/register/register.component
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi:true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

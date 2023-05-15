@@ -29,9 +29,9 @@
             <a routerLink="/register" class="nav-link">Register</a>
           </li>
           <li class="nav-item" *ngIf="access_token | async as token">
-            <button (click)="onLogout()" class="nav-link text-white">
+            <a (click)="onLogout()" class="nav-link btn btn-default ">
               Log out
-            </button>
+            </a>
           </li>
         </ul>
       </div>

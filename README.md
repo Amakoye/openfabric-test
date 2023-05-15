@@ -40,5 +40,9 @@ ng build --prod
 4. Install and configure the necessary dependencies on the backend server and run the appropriate command to start your backend server.
   - Install Node.js and any other dependencies required by your backend application (e.g., Express, MongoDB driver).
 5. Set up an S3 bucket for the frontend and Create a new S3 bucket to host your frontend files. Upload the contents of the dist folder (generated in step 1) to the S3 bucket.
+6. Configure the S3 bucket for static website hosting, by enabling static website hosting and set the index document to the appropriate file
+7. Set up CloudFront, create  a new distribution and configure the distribution to use your S3 bucket as the origin
+8. Point your domain to CloudFront
+9. Test the deployment and verify that both the frontend and backend are working correctly.
 
 
